@@ -1,0 +1,32 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <section class="main row">
+        <img src="~/Imagen/LogoChico.jpg" width="50" />
+        <h2>Catalogo de Articulo</h2>
+    </section>
+</div>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID Articulo</th>
+        <th>Articulo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Activo</th>
+    </tr>
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+        <tr>
+            <td>@Model.Rows[i]["IdArticulo"]</td>
+            <td>@Model.Rows[i]["Articulo"]</td>
+            <td>@Model.Rows[i]["Precio"]</td>
+            <td>@Model.Rows[i]["Stock"]</td>
+            <td>@Model.Rows[i]["Activo"]</td>
+        </tr>  
+    }
+</table>
+
+<a href="@Url.Action("Create","Articulos")">Agregar</a>
